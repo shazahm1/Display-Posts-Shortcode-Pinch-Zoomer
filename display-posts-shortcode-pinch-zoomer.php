@@ -311,6 +311,38 @@ if ( ! class_exists( 'Display_Posts_Pinch_Zoomer' ) ) {
 
 			$html = '<' . $inner_wrapper . ' class="' . implode( ' ', $class ) . '">' . $image . $title . $date . $author . $category_display_text . $excerpt . $content . '</' . $inner_wrapper . '>';
 
+			/**
+			 * Filter the HTML markup for output via the shortcode.
+			 *
+			 * @since 1.1
+			 *
+			 * @param string $html          The shortcode's HTML output.
+			 * @param array  $original_atts Original attributes passed to the shortcode.
+			 * @param string $image         HTML markup for the post's featured image element.
+			 * @param string $title         HTML markup for the post's title element.
+			 * @param string $date          HTML markup for the post's date element.
+			 * @param string $excerpt       HTML markup for the post's excerpt element.
+			 * @param string $inner_wrapper Type of container to use for the post's inner wrapper element.
+			 * @param string $content       The post's content.
+			 * @param string $class         Space-separated list of post classes to supply to the $inner_wrapper element.
+			 * @param string $author 		HTML markup for the post's author.
+			 * @param string $category_display_text
+			 */
+			$html = apply_filters(
+				'Display_Posts_Shortcode_Pinch_Zoomer\postItem',
+				$html,
+				$original_atts,
+				$image,
+				$title,
+				$date,
+				$excerpt,
+				$inner_wrapper,
+				$content,
+				$class,
+				$author,
+				$category_display_text
+				);
+
 			return $html;
 		}
 
