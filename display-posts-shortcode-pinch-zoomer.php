@@ -251,6 +251,8 @@ if ( ! class_exists( 'Display_Posts_Pinch_Zoomer' ) ) {
 		}
 
 		/**
+		 * Callback for the `display_posts_shortcode_output` filter.
+		 *
 		 * @since 1.0
 		 *
 		 * @param string $html          The shortcode's HTML output.
